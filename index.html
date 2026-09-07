@@ -38,19 +38,36 @@
         </div>
         <div class="controls">
           <div class="panel-label">CONTROL DECK</div>
-          <div class="key-row"><kbd>↑</kbd><span>ADVANCE</span></div>
-          <div class="key-row"><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd><span>STEER / RETREAT</span></div>
-          <div class="key-row"><kbd class="wide-key">SPACE</kbd><span>FIRE</span></div>
+          <div class="key-row"><kbd>W</kbd><span>MOVE UP</span></div>
+          <div class="key-row"><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>LEFT / DOWN / RIGHT</span></div>
+          <div class="key-row"><kbd class="wide-key">MOUSE</kbd><span>AIM</span></div>
+          <div class="key-row"><kbd class="wide-key">CLICK</kbd><span>FIRE</span></div>
+          <div class="key-row"><kbd>V</kbd><span>CHANGE CAMERA</span></div>
+          <div class="key-row"><kbd class="wide-key">SPACE</kbd><span>FIRE BACKUP</span></div>
         </div>
       </aside>
 
       <div class="arena-wrap">
         <div class="arena-frame">
           <canvas id="gameCanvas" aria-label="Neon Duel game arena"></canvas>
-          <div class="hud-corner top-left">SECTOR 07 <span>//</span> LIVE</div>
+          <div class="hud-corner top-left">SECTOR 07 <span>//</span> <b id="cameraMode">TACTICAL</b></div>
           <div class="hud-corner top-right">ROUND <b id="roundNumber">01</b></div>
+          <div class="combat-hud">
+            <div class="hud-block player-hud">
+              <div class="hud-block-head"><span>PLAYER_X</span><b id="hudAmmo">12 RDS</b></div>
+              <div class="hud-value"><strong id="hudPlayerArmor">100</strong><span>ARMOR</span></div>
+              <div class="hud-meter"><i id="hudPlayerArmorBar"></i></div>
+            </div>
+            <div class="hud-block target-hud">
+              <div class="hud-block-head"><span>NULL-01</span><b id="hudStatus">WAITING</b></div>
+              <div class="hud-value"><strong id="hudRange">6.5 M</strong><span>RANGE</span></div>
+              <div class="hud-meter"><i id="hudEnemyArmorBar"></i></div>
+              <div class="hud-target-armor"><span>TARGET ARMOR</span><b id="hudEnemyArmor">100</b></div>
+            </div>
+          </div>
           <div class="crosshair"><i></i><i></i><i></i><i></i><b></b></div>
-          <div class="center-message" id="centerMessage">PRESS SPACE TO DEPLOY</div>
+          <div class="center-message" id="centerMessage">CLICK OR PRESS SPACE TO START</div>
+          <div class="control-hint"><b>W A S D</b> MOVE <span>//</span> <b>MOUSE</b> AIM <span>//</span> <b>CLICK</b> SHOOT <span>//</span> <b>V</b> CHANGE CAMERA</div>
           <div class="hit-flash" id="hitFlash"></div>
           <div class="damage-vignette" id="damageVignette"></div>
           <div class="scanlines"></div>
