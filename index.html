@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEON//DUEL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div class="brand-lockup">
+        <span class="brand-mark">N//D</span>
+        <div>
+          <h1>NEON<span>//</span>DUEL</h1>
+          <p>ONE PERSON // ONE OPPONENT</p>
+        </div>
+      </div>
+      <div class="match-status"><span class="status-dot"></span>LIVE MATCH <b id="matchTime">00:00</b></div>
+    </header>
+
+    <section class="game-layout">
+      <aside class="side-panel left-panel">
+        <div class="panel-label">OPERATOR</div>
+        <div class="agent-card player-card">
+          <div class="agent-avatar player-avatar">PX</div>
+          <div><strong>PLAYER_X</strong><small>YOU // BLUE TEAM</small></div>
+          <span class="online-dot"></span>
+        </div>
+        <div class="stat-block">
+          <div class="stat-line"><span>ARMOR</span><strong id="playerArmor">100</strong></div>
+          <div class="meter"><i id="playerArmorBar"></i></div>
+          <div class="stat-line"><span>AMMO</span><strong id="ammoCount">12</strong></div>
+          <div class="ammo-pips" id="ammoPips"></div>
+        </div>
+        <div class="controls">
+          <div class="panel-label">CONTROL DECK</div>
+          <div class="key-row"><kbd>↑</kbd><span>ADVANCE</span></div>
+          <div class="key-row"><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd><span>STEER / RETREAT</span></div>
+          <div class="key-row"><kbd class="wide-key">SPACE</kbd><span>FIRE</span></div>
+        </div>
+      </aside>
+
+      <div class="arena-wrap">
+        <div class="arena-frame">
+          <canvas id="gameCanvas" aria-label="Neon Duel game arena"></canvas>
+          <div class="hud-corner top-left">SECTOR 07 <span>//</span> LIVE</div>
+          <div class="hud-corner top-right">ROUND <b id="roundNumber">01</b></div>
+          <div class="crosshair"><i></i><i></i><i></i><i></i><b></b></div>
+          <div class="center-message" id="centerMessage">PRESS SPACE TO DEPLOY</div>
+          <div class="hit-flash" id="hitFlash"></div>
+          <div class="damage-vignette" id="damageVignette"></div>
+          <div class="scanlines"></div>
+        </div>
+        <div class="arena-caption"><span><i class="legend-dot player-legend"></i> PLAYER POSITION</span><span><i class="legend-dot enemy-legend"></i> HOSTILE SIGNAL</span><span id="feedMessage">SYSTEM READY</span></div>
+      </div>
+
+      <aside class="side-panel right-panel">
+        <div class="panel-label">HOSTILE SIGNAL</div>
+        <div class="agent-card enemy-card">
+          <div class="agent-avatar enemy-avatar">AI</div>
+          <div><strong>NULL-01</strong><small>BOT // RED TEAM</small></div>
+          <span class="online-dot enemy-online"></span>
+        </div>
+        <div class="stat-block">
+          <div class="stat-line"><span>ARMOR</span><strong id="enemyArmor">100</strong></div>
+          <div class="meter enemy-meter"><i id="enemyArmorBar"></i></div>
+          <div class="stat-line"><span>THREAT</span><strong class="threat-text">HIGH</strong></div>
+        </div>
+        <div class="telemetry">
+          <div class="panel-label">TELEMETRY</div>
+          <div class="telemetry-row"><span>RANGE</span><b id="rangeValue">-- M</b></div>
+          <div class="telemetry-row"><span>ACCURACY</span><b id="accuracyValue">100%</b></div>
+          <div class="telemetry-row"><span>STATUS</span><b id="enemyStatus">WAITING</b></div>
+        </div>
+        <button class="reset-button" id="resetButton" type="button"><span>↻</span> RESET MATCH</button>
+      </aside>
+    </section>
+    <footer><span>NEON//DUEL PROTOCOL 1.0</span><span>ELIMINATE THE SIGNAL</span><span>BEST OF 01</span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
